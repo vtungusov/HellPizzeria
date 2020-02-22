@@ -1,6 +1,7 @@
 package com.vtungusov.resolvers;
 
 import com.vtungusov.factories.Factory;
+import com.vtungusov.factories.PieFactory;
 import com.vtungusov.factories.PizzaFactory;
 import com.vtungusov.store.order.ProductOrder;
 
@@ -12,7 +13,8 @@ public class ProductFactoryResolver implements Resolver {
 
     public ProductFactoryResolver() {
         this.factories = Arrays.asList(
-                new PizzaFactory()
+                new PizzaFactory(),
+                new PieFactory()
         );
     }
 

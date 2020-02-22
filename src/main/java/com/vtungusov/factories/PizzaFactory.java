@@ -20,7 +20,6 @@ public class PizzaFactory implements Factory {
 
     @Override
     public Product create(ProductOrder productOrder) {
-        Factory factory = pizzaFactoryResolver.resolve(productOrder);
-        return factory.create(productOrder);
+        return pizzaFactoryResolver.resolve(productOrder).create(productOrder);
     }
 }

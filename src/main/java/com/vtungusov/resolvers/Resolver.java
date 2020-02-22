@@ -1,6 +1,5 @@
 package com.vtungusov.resolvers;
 
-import com.vtungusov.domain.Type;
 import com.vtungusov.factories.Factory;
 import com.vtungusov.store.order.ProductOrder;
 

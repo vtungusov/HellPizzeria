@@ -21,7 +21,7 @@ public class PizzaFactoryResolver implements Resolver {
 
     @Override
     public Factory resolve(ProductOrder productOrder) {
-        PizzaOrder pizzaOrder = (PizzaOrder)productOrder;
+        PizzaOrder pizzaOrder = (PizzaOrder) productOrder;
         for (Factory factory : factories) {
             if (factory.support(pizzaOrder.getPizzaType())) {
                 return factory;

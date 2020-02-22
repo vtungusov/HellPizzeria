@@ -1,6 +1,6 @@
 package com.vtungusov.store;
 
-import com.vtungusov.domain.*;
+import com.vtungusov.domain.Product;
 import com.vtungusov.store.order.Order;
 
 import java.util.List;

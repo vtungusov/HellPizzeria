@@ -19,8 +19,12 @@ public class CheesePizzaFactory implements Factory {
     public Product create(ProductOrder productOrder) {
         if (productOrder.getType().equals(ProductType.PIZZA)) {
             PizzaOrder pizzaOrder = (PizzaOrder) productOrder;
-            return new CheesePizza(pizzaOrder.getPizzaSize());
+            CheesePizza cheesePizza = new CheesePizza(pizzaOrder.getPizzaSize());
+            cheesePizza.createPizza();
+            return cheesePizza;
         }
         throw new IllegalStateException("Can`t create product for " + productOrder.getType());
     }
+
+
 }

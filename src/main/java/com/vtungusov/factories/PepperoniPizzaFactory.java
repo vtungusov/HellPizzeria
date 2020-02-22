@@ -19,7 +19,9 @@ public class PepperoniPizzaFactory implements Factory {
     public Product create(ProductOrder productOrder) {
         if (productOrder.getType().equals(ProductType.PIZZA)) {
             PizzaOrder pizzaOrder = (PizzaOrder) productOrder;
-            return new PepperoniPizza(pizzaOrder.getPizzaSize());
+            PepperoniPizza pepperoniPizza = new PepperoniPizza(pizzaOrder.getPizzaSize());
+            pepperoniPizza.createPizza();
+            return pepperoniPizza;
         }
         throw new IllegalStateException("Can`t find factory for " + productOrder.getType());
     }

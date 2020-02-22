@@ -4,5 +4,6 @@ import com.vtungusov.domain.Product;
 
 public interface Pizza extends Product {
     void bake();
+
     void cut();
 }

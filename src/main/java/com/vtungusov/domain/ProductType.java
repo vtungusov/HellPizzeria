@@ -1,6 +1,6 @@
 package com.vtungusov.domain;
 
-public enum ProductType implements Type{
+public enum ProductType implements Type {
     PIZZA,
     PIE
 }

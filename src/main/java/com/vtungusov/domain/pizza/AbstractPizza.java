@@ -13,6 +13,13 @@ public abstract class AbstractPizza implements Pizza {
         this.ingredients = ingredients;
     }
 
+    public void createPizza() {
+        prepare();
+        bake();
+        cut();
+        box();
+    }
+
     @Override
     public void prepare() {
         System.out.println("Prepare " + pizzaType + " pizza");
