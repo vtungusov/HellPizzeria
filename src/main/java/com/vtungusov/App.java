@@ -6,6 +6,8 @@ import com.vtungusov.domain.pizza.PizzaSize;
 import com.vtungusov.domain.pizza.PizzaType;
 import com.vtungusov.store.SimpleStore;
 import com.vtungusov.store.Store;
+import com.vtungusov.store.money.Money;
+import com.vtungusov.store.money.MoneyType;
 import com.vtungusov.store.order.Order;
 import com.vtungusov.store.order.PieOrder;
 import com.vtungusov.store.order.PizzaOrder;
@@ -15,7 +17,7 @@ import java.util.List;
 
 public class App {
     public static void main(String[] args) {
-        Store store = new SimpleStore();
+        Store store = new SimpleStore(MoneyType.USD);
         Order order = new Order(Arrays.asList(
                 new PizzaOrder(PizzaType.CHEESE, PizzaSize.LARGE),
                 new PizzaOrder(PizzaType.PEPPERONI, PizzaSize.MEDIUM),
@@ -26,6 +28,9 @@ public class App {
 
         List<Product> products = store.makeOrder(order);
         printResult(products);
+
+        Money money = store.calcOrder(order);
+        System.out.println(money);
     }
 
     private static void printResult(List<Product> products) {

@@ -3,6 +3,9 @@ package com.vtungusov.store;
 import com.vtungusov.domain.Product;
 import com.vtungusov.factories.Factory;
 import com.vtungusov.resolvers.ProductFactoryResolver;
+import com.vtungusov.store.money.CashBox;
+import com.vtungusov.store.money.Money;
+import com.vtungusov.store.money.MoneyType;
 import com.vtungusov.store.order.Order;
 import com.vtungusov.store.order.ProductOrder;
 
@@ -11,9 +14,11 @@ import java.util.List;
 
 public class SimpleStore implements Store {
     private ProductFactoryResolver resolver;
+    CashBox cashBox;
 
-    public SimpleStore() {
+    public SimpleStore(MoneyType moneyType) {
         resolver = new ProductFactoryResolver();
+        cashBox = new CashBox(moneyType);
     }
 
     @Override
@@ -27,5 +32,10 @@ public class SimpleStore implements Store {
         }
 
         return products;
+    }
+
+    @Override
+    public Money calcOrder(Order order) {
+        return cashBox.getInvoice(order);
     }
 }

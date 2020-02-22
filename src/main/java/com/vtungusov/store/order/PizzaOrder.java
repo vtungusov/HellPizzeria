@@ -4,6 +4,8 @@ import com.vtungusov.domain.ProductType;
 import com.vtungusov.domain.pizza.PizzaSize;
 import com.vtungusov.domain.pizza.PizzaType;
 
+import java.util.Objects;
+
 public class PizzaOrder implements ProductOrder {
     private final ProductType productType = ProductType.PIZZA;
     private PizzaType pizzaType;
@@ -25,5 +27,18 @@ public class PizzaOrder implements ProductOrder {
     @Override
     public ProductType getType() {
         return productType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PizzaOrder that = (PizzaOrder) o;
+        return pizzaType == that.pizzaType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pizzaType);
     }
 }
