@@ -1,9 +1,8 @@
 package com.vtungusov.factories;
 
-import com.vtungusov.domain.Product;
 import com.vtungusov.resolvers.Supports;
-import com.vtungusov.store.order.ProductOrder;
 
-public interface Factory extends Supports {
-    Product create(ProductOrder productOrder);
+public interface Factory<FACTORY_RESULT, SUP_CRITERIA>
+        extends Supports<SUP_CRITERIA> {
+    FACTORY_RESULT create(SUP_CRITERIA productOrder);
 }

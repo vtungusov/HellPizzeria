@@ -1,9 +1,5 @@
 package com.vtungusov.resolvers;
 
-import com.vtungusov.domain.Type;
-import com.vtungusov.factories.Factory;
-import com.vtungusov.store.order.ProductOrder;
-
-public interface Resolver {
-    Factory resolve(ProductOrder productOrder);
+public interface Resolver<RESOLVER_RESULT, RESOLVER_CRITERIA> {
+    RESOLVER_RESULT resolve(RESOLVER_CRITERIA productOrder);
 }

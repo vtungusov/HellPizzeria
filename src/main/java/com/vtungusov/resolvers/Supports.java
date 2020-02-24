@@ -1,7 +1,5 @@
 package com.vtungusov.resolvers;
 
-import com.vtungusov.domain.Type;
-
-public interface Supports {
-    boolean support(Type type);
+public interface Supports<SUP_CRITERIA> {
+    boolean support(SUP_CRITERIA type);
 }
